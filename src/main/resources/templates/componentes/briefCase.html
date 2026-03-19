@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<!--
+  Uso:
+  th:replace="~{fragments/navbar :: navbar('experiencia')}"
+  Valores típicos: 'inicio', 'formacion', 'certificaciones', 'experiencia', 'desarrollos', 'contacto'
+-->
+<div th:fragment="briefCase(formacion)"
+     class="briefCase"
+     id="briefCase"
+     onclick="focusBriefcase(this)">
+  <div class="caseWrap" id="caseWrap" role="button" tabindex="0" aria-expanded="false">
+    <div class="case3d">
+
+      <!-- ASA -->
+      <div class="handle3d">
+        <div class="handleTop"></div>
+        <div class="handleLeg left"></div>
+        <div class="handleLeg right"></div>
+      </div>
+
+      <!-- BASE -->
+      <div class="box">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face right"></div>
+        <div class="face left"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+      </div>
+
+      <!-- TAPA -->
+      <div class="lid3d">
+        <div class="face front">
+          <!-- Puedes reemplazar por <img th:src="@{/...}"> -->
+          <span class="badge"><img class="logo" th:src="@{/imagenes/mrm.jpg}" alt="Foto"></span>
+        </div>
+        <div class="face back"></div>
+        <div class="face right"></div>
+        <div class="face left"></div>
+        <div class="face bottom"></div>
+      </div>
+
+      <!-- PAPEL -->
+      <div class="paper3d">
+        <h3 th:text="${formacion.company}">MRM</h3>
+
+        <p>
+          <b th:text="${formacion.job}">Salesforce Developer</b>
+          —
+          (<span th:text="${#temporals.format(formacion.startdate,'dd/MM/yyyy')}">12/06/2023</span>
+          –
+          <span th:text="${formacion.enddate != null ? #temporals.format(formacion.enddate,'dd/MM/yyyy') : 'Actual'}">
+                28/01/2026
+            </span>)
+        </p>
+
+        <p th:if="${formacion.description != null}"
+           th:text="${formacion.description}"
+           style="white-space: pre-wrap;">
+          Descripción
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+</body>
+</html>

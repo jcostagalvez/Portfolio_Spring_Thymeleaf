@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/contacto.css}">
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
+    <script type="text/javascript" th:src="@{/js/contacto.js}" defer></script>
+    <script type="text/javascript" th:src="@{/js/navBar.js}" defer></script>
+</head>
+<body>
+<div th:replace="~{componentes/navbar :: navbar(selected=true, fixed=true)}"></div>
+<div class="crt">
+    <div class="frame">
+        <div class="header">FORMULARIO DE CONTACTO</div>
+
+        <div class="screen" aria-live="polite">
+            <span id="typed"></span><span id="cursor" class="cursor"></span>
+        </div>
+
+        <form class="form"  th:object="${Contacto}" th:action="@{/sendContactoEmail}" method="post">
+            <label class="row">
+                <span class="label">NAME:</span>
+                <input class="input" id="name" name="name"  autocomplete="name" required>
+            </label>
+
+            <label class="row">
+                <span class="label">EMAIL:</span>
+                <input class="input" id="email" name="email"  autocomplete="email" required>
+            </label>
+
+            <label class="row">
+                <span class="label">MESSAGE:</span>
+                <textarea class="input textarea" id="description" name="description"  rows="5" required></textarea>
+            </label>
+
+            <div class="actions">
+                <button class="btn" type="submit">SEND</button>
+                <button class="btn ghost" type="reset">CLEAR</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<div th:fragment="formacionCard(right, formacion)"
+     class="formacionCard"
+     id="formacionCard">
+
+    <div class="cardContainer"
+         th:classappend="${right} ? ' right' : ' left'">
+
+        <div class="cardCircle">
+            <img th:src="@{/imagenes/mrm.jpg}" alt="logo" />
+        </div>
+
+        <div class="cardInfo">
+            <h1 class="cardTitle" th:text="${formacion.title}">Grado en psicologia</h1>
+            <p th:text="${formacion.description}">Universidad de Oviedo</p>
+
+            <!-- Fechas -->
+            <p>
+                <span th:text="${formacion.startDate}">2011</span>
+                -
+                <span th:text="${formacion.endDate}">2015</span>
+            </p>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

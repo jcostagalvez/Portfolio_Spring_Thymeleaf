@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head >
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Certificaciones</title>
+
+    <link rel="stylesheet" th:href="@{/css/certificaciones.css}">
+    <link rel="stylesheet" th:href="@{/css/medalla.css}">
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
+    <script type="text/javascript" th:src="@{/js/formacionCard.js}" defer></script>
+    <script type="text/javascript" th:src="@{/js/navBar.js}" defer></script>
+</head>
+<div th:replace="~{componentes/navbar :: navbar(selected=true, fixed=true)}"></div>
+<div class="certContainer">
+    <th:block th:each="cert, iter : ${certificaciones}">
+        <div class="medallaitem" th:replace="componentes/medalla :: medalla(${cert})"></div>
+    </th:block>
+</div>
+</body>
+</html>
+
+<!--
+-->

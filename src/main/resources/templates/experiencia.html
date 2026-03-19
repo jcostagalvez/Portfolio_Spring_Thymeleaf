@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" th:href="@{/css/briefCase.css}">
+    <link rel="stylesheet" th:href="@{/css/experiencia.css}">
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
+    <script type="text/javascript" th:src="@{/js/briefCase.js}" defer></script>
+    <script type="text/javascript" th:src="@{/js/navBar.js}" defer></script>
+
+</head>
+<body>
+    <div class=" pageContainer">
+        <div th:replace="~{componentes/navbar :: navbar(selected=true, fixed=true)}"></div>
+        <div class="briefCasescontainer">
+            <th:block th:each="experiencia, iter : ${experiencias}">
+                <div th:replace="~{componentes/briefCase :: briefCase(${experiencia})}" class="briefCase"></div>
+            </th:block>
+        </div>
+    </div>
+</body>
+</html>

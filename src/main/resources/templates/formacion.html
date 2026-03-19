@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Formacion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/formacion.css}">
+    <link rel="stylesheet" th:href="@{/css/formacionCard.css}">
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
+    <script type="text/javascript" th:src="@{/js/formacionCard.js}" defer></script>
+    <script type="text/javascript" th:src="@{/js/navBar.js}" defer></script>
+</head>
+<body class="formacionContainer">
+    <div class="navBarFormacion" th:replace="~{componentes/navbar :: navbar(selected=true, fixed=true)}"></div>
+    <div class="formacionPath">
+        <th:block th:each="formacion, iter : ${formaciones}">
+            <div th:replace="~{componentes/formacionCard ::
+        formacionCard(right=${iter.even}, formacion=${formacion})}">
+            </div>
+        </th:block>
+    </div>
+</body>
+</html>

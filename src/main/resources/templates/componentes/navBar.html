@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<!--
+  Uso:
+  th:replace="~{fragments/navbar :: navbar('experiencia')}"
+  Valores típicos: 'inicio', 'formacion', 'certificaciones', 'experiencia', 'desarrollos', 'contacto'
+-->
+<div th:fragment="navbar(selected, fixed)"
+     class="navContainer"
+     th:classappend="${fixed} ? 'fix': 'float'"
+     id="navContainer">
+
+        <button onclick="closeNav()"
+                class="menuBtn"
+                id="menuBtn"
+                type="button"
+                aria-label="Abrir menú"
+                aria-expanded="false">
+            <span class="burger" aria-hidden="true"></span>
+
+            <svg class="cloud" viewBox="0 0 200 120" aria-hidden="true">
+                <path class="cloudPath"
+                      d="M55 95
+                   Q25 95 25 70
+                   Q25 55 40 48
+                   Q35 30 60 25
+                   Q75 10 105 20
+                   Q130 15 145 35
+                   Q170 35 175 60
+                   Q185 85 155 95
+                   Z"/>
+            </svg>
+
+            <span class="x" aria-hidden="true"></span>
+        </button>
+
+        <ul id="navList">
+            <li th:classappend="${active}=='inicio' ? ' active' : ''">
+                <a th:href="@{/portfolio/}">Inicio</a>
+            </li>
+
+            <li th:classappend="${active}=='formacion' ? ' active' : ''">
+                <a th:href="@{/portfolio/formacion}">Formación</a>
+            </li>
+
+            <li th:classappend="${active}=='certificaciones' ? ' active' : ''">
+                <a th:href="@{/portfolio/certificaciones}">Certificaciones</a>
+            </li>
+
+            <li th:classappend="${active}=='experiencia' ? ' active' : ''">
+                <a th:href="@{/portfolio/experiencia}">Experiencia</a>
+            </li>
+
+            <li th:classappend="${active}=='desarrollos' ? ' active' : ''">
+                <a th:href="@{/portfolio/desarollos}">Desarollos</a>
+            </li>
+
+            <li th:classappend="${active}=='contacto' ? ' active' : ''">
+                <a th:href="@{/portfolio/contacto}">Contacto</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

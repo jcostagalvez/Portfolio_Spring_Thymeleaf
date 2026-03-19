@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="screen(screen)"
+     class="screen"
+     id="Screen">
+  <div class="pcStage">
+
+    <div class="pcRig">
+
+      <!-- MONITOR -->
+      <div class="monitor">
+
+        <div class="monitorBezel">
+          <script>
+            function clic(el){
+              const iframe = el.closest(".screen").querySelector(".screenIframe");
+              const url = iframe.src;
+
+              window.open(url, "_blank");
+            }
+          </script>
+          <div class="monitorScreen" onclick="clic(this)">
+
+            <iframe class="screenIframe"
+                    th:src=${screen.url}>
+            </iframe>
+
+            <div class="screenGlass"></div>
+            <div class="screenScan"></div>
+            <div class="screenVignette"></div>
+
+            <div class="screenOsd">
+              <span  class="led"></span>
+              <span th:text="${screen.name}"></span>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="monitorBack"></div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+body{
+    background-color: #E8B5DB;
+    background-size: contain;
+}
+.pageContainer{
+    width: 100%;
+    background-color: #E8B5DB;
+    display: flex;
+    height: 100vh;
+}
+.briefCasescontainer{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+.briefCase{
+    width: 33%;
+}
+
+@media (max-width: 768px) {
+    .briefCase{
+        width: 100%;
+    }
+}

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Proyectos</title>
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
+    <link rel="stylesheet" th:href="@{/css/proyectos.css}">
+    <link rel="stylesheet" th:href="@{/css/screen.css}">
+    <script type="text/javascript" th:src="@{/js/navBar.js}" defer></script>
+
+</head>
+
+<body>
+<div class="navBarFormacion" th:replace="~{componentes/navbar :: navbar(selected=true, fixed=true)}"></div>
+<div class="monitorContainer">
+    <th:block th:each="proyecto, iter : ${proyectos}">
+        <div class="screenItem" th:replace="componentes/screen :: screen(${proyecto})"></div>
+    </th:block>
+</div>
+</body>
+</html>

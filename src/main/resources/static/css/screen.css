@@ -1,0 +1,115 @@
+.pcStage{
+  perspective:1200px;
+}
+
+.pcRig{
+  width:720px;
+  transition:0.3s;
+}
+
+/* ===== MONITOR ===== */
+
+.monitor{
+  position:relative;
+  width:360px;
+  margin:auto;
+}
+
+.monitorBezel{
+  background:linear-gradient(180deg,#d8d2c5,#bdb6aa);
+  border-radius:16px;
+  padding:16px 16px 22px;
+  border:1px solid rgba(0,0,0,.35);
+}
+
+.monitorScreen{
+  position:relative;
+  width:100%;
+  aspect-ratio:4/3;
+  border-radius:10px;
+  overflow:hidden;
+  background:black;
+}
+
+.monitorScreen:hover .screenOsd{
+    opacity:1;
+}
+.screenIframe{
+  pointer-events: none;
+}
+.screenIframe{
+  pointer-events: none;
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:none;
+  transform:scale(1.02);
+}
+
+/* CRT glass */
+
+.screenGlass{
+  position:absolute;
+  inset:-6%;
+  background:
+  radial-gradient(circle at 20% 10%,rgba(255,255,255,.25),transparent 55%),
+  radial-gradient(circle at 90% 40%,rgba(140,255,230,.15),transparent 60%);
+  mix-blend-mode:screen;
+}
+
+/* scanlines */
+
+.screenScan{
+  position:absolute;
+  inset:0;
+  background:repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,.05) 0px,
+    rgba(255,255,255,.05) 1px,
+    transparent 3px,
+    transparent 5px
+  );
+}
+
+/* vignette */
+
+.screenVignette{
+  cursor: pointer;
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle,
+  transparent 40%,
+  rgba(0,0,0,.5) 100%);
+}
+
+/* led */
+
+.screenOsd{
+  opacity:0;
+  position:absolute;
+  bottom:8px;
+  left:10px;
+  background:rgba(0,0,0,.4);
+  padding:4px 8px;
+  border-radius:20px;
+  font-size:11px;
+  color:white;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.led{
+  width:8px;
+  height:8px;
+  background:#65ff9a;
+  border-radius:50%;
+  box-shadow:0 0 8px #65ff9a;
+}
+
+@media (max-width: 768px) {
+    .pcRig{
+      width:100%;
+    }
+}

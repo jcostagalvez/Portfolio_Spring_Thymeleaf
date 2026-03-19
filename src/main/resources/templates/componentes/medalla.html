@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="medalla(medalla)"
+     class="medalla"
+     id="Medalla">
+  <div class="medalStage">
+
+    <div class="medal">
+
+      <div class="ribbon"></div>
+
+      <div class="medalInner">
+
+        <div class="nube"></div>
+
+        <div  class="medalTitle"><span th:text="${medalla.tecnologia.name}"></span> Certified</div>
+
+        <div th:text="${medalla.name}" class="medalCert">AI Associate</div>
+
+        <div th:text="${medalla.certificacionidentificator}" class="certRef">Certification ID: SF-AI-2025</div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+</body>
+
+</html>
