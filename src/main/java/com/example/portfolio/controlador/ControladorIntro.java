@@ -30,7 +30,7 @@ public class ControladorIntro {
         this.certificaciones = certificaciones;
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public String goHome (){
         return "home";
     }
