@@ -10,9 +10,9 @@ FROM eclipse-temurin:17-jdk
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 
-# 👇 AÑADE ESTO
-ENV PORT=8080
+# 👇 MUY IMPORTANTE
+ENV PORT=10000
 
-EXPOSE 8080
+EXPOSE 10000
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["sh", "-c", "java -jar app.jar --server.port=$PORT --server.address=0.0.0.0"]
